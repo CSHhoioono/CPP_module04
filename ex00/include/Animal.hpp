@@ -6,7 +6,7 @@
 /*   By: soochoi <soochoi@student.42gyeongsan.kr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 16:41:29 by soochoi           #+#    #+#             */
-/*   Updated: 2026/01/20 17:40:28 by soochoi          ###   ########.fr       */
+/*   Updated: 2026/01/21 17:43:14 by choisoonho       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class	Animal
 		Animal(const Animal& copyObj);
 		Animal&	operator=(const Animal& copyObj);
 		virtual ~Animal();
+		virtual void	makeSound();
 };
 
 #endif
