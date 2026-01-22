@@ -6,7 +6,7 @@
 /*   By: soochoi <soochoi@student.42gyeongsan.kr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 17:29:44 by soochoi           #+#    #+#             */
-/*   Updated: 2026/01/20 17:30:00 by soochoi          ###   ########.fr       */
+/*   Updated: 2026/01/22 15:35:10 by soochoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,12 @@
 
 class Cat : virtual public Animal
 {
-
+	public:
+		Cat();
+		Cat(const Cat& copyObj);
+		Cat&	operator=(const Cat& copyObj);
+		virtual ~Cat();
+		virtual void	makeSound() const;
 };
 
 #endif

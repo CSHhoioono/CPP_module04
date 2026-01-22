@@ -1,45 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soochoi <soochoi@student.42gyeongsan.kr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/20 17:27:51 by soochoi           #+#    #+#             */
-/*   Updated: 2026/01/22 16:34:16 by soochoi          ###   ########.fr       */
+/*   Created: 2026/01/22 15:31:54 by soochoi           #+#    #+#             */
+/*   Updated: 2026/01/22 16:37:04 by soochoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongAnimal.hpp"
 
-Dog::Dog()
+WrongAnimal::WrongAnimal() : type_("Animal")
 {
-	this->type_ = "Dog";
-	std::cout << "Default constructor(Dog class)>> "\
+	std::cout << "Default constructor(WrongAnimal class)>> "\
 		<< this->type_ << " has been created.\n" << std::endl;
 }
 
-Dog::Dog(const Dog& copyObj)
+WrongAnimal::WrongAnimal(const WrongAnimal& copyObj)
 {
-	this->Animal::operator=(copyObj);
-	std::cout << "Copy constructor(Dog class)>> "\
+	*this = copyObj;
+	std::cout << "Copy constructor(WrongAnimal class)>> "\
 		<< this->type_ << " has been created.\n" << std::endl;
 }
 
-Dog&	Dog::operator=(const Dog& copyObj)
+WrongAnimal&	WrongAnimal::operator=(const WrongAnimal& copyObj)
 {
 	this->type_ = copyObj.type_;
 	std::cout << "Copy assignment operator called" << std::endl;
 	return (*this);
 }
 
-Dog::~Dog()
+WrongAnimal::~WrongAnimal()
 {
-	std::cout << "\nDestructor(Dog class)>> "\
+	std::cout << "\nDestructor(WrongAnimal class)>> "\
 		<< this->type_ << " has been destroyed." << std::endl;
 }
 
-void	Dog::makeSound() const
+void	WrongAnimal::makeSound() const
 {
-	std::cout << "The dog is barking." << std::endl;
+	std::cout << "The animal is making an unknown sound." << std::endl;
+}
+
+std::string	WrongAnimal::getType() const
+{
+	return (this->type_);
 }

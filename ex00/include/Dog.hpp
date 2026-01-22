@@ -6,7 +6,7 @@
 /*   By: soochoi <soochoi@student.42gyeongsan.kr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 17:27:52 by soochoi           #+#    #+#             */
-/*   Updated: 2026/01/20 17:40:28 by soochoi          ###   ########.fr       */
+/*   Updated: 2026/01/22 15:35:21 by soochoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,12 @@
 
 class Dog : virtual public Animal
 {
-
+	public:
+		Dog();
+		Dog(const Dog& copyObj);
+		Dog&	operator=(const Dog& copyObj);
+		virtual ~Dog();
+		virtual void	makeSound() const;
 };
 
 #endif
