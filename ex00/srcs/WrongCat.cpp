@@ -6,22 +6,20 @@
 /*   By: soochoi <soochoi@student.42gyeongsan.kr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 15:46:01 by soochoi           #+#    #+#             */
-/*   Updated: 2026/01/22 16:35:08 by soochoi          ###   ########.fr       */
+/*   Updated: 2026/01/23 14:33:28 by soochoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat()
+WrongCat::WrongCat() : WrongAnimal("Cat")
 {
-	this->type_ = "Cat";
 	std::cout << "Default constructor(WrongCat class)>> "\
 		<< this->type_ << " has been created.\n" << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat& copyObj)
+WrongCat::WrongCat(const WrongCat& copyObj) : WrongAnimal(copyObj.type_)
 {
-	*this = copyObj;
 	std::cout << "Copy constructor(WrongCat class)>> "\
 		<< this->type_ << " has been created.\n" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: soochoi <soochoi@student.42gyeongsan.kr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 16:41:51 by soochoi           #+#    #+#             */
-/*   Updated: 2026/01/22 16:36:53 by soochoi          ###   ########.fr       */
+/*   Updated: 2026/01/23 14:27:10 by soochoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,14 @@ Animal::Animal() : type_("Animal")
 		<< this->type_ << " has been created.\n" << std::endl;
 }
 
-Animal::Animal(const Animal& copyObj)
+Animal::Animal(const std::string type) : type_(type)
 {
-	*this = copyObj;
+	std::cout << "String constructor(Animal class)>> "\
+		<< this->type_ << " has been created.\n" << std::endl;
+}
+
+Animal::Animal(const Animal& copyObj) : type_(copyObj.type_)
+{
 	std::cout << "Copy constructor(Animal class)>> "\
 		<< this->type_ << " has been created.\n" << std::endl;
 }

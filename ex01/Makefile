@@ -6,15 +6,14 @@
 #    By: soochoi <soochoi@student.42gyeongsan.kr>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/05 16:07:24 by soochoi           #+#    #+#              #
-#    Updated: 2026/01/22 16:55:30 by soochoi          ###   ########.fr        #
+#    Updated: 2026/01/23 16:34:11 by soochoi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Polymorphism
+NAME = Polymorphism2
 
 HEADER_DIR = ./include/
 HEADER_LIST = Animal.hpp Brain.hpp Cat.hpp Dog.hpp\
-			  WrongAnimal.hpp WrongCat.hpp
 HEADER = $(addprefix $(HEADER_DIR), $(HEADER_LIST))
 
 CC = c++
@@ -23,8 +22,7 @@ VERSION_FLAG = -std=c++98
 INCLUDE = -I$(HEADER_DIR)
 
 SRCS_DIR = ./srcs/
-SRCS_LIST = Animal.cpp Brain.cpp Cat.cpp Dog.cpp\
-			WrongAnimal.cpp WrongCat.cpp
+SRCS_LIST = Animal.cpp Brain.cpp Cat.cpp Dog.cpp
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_LIST))
 
 MAIN = $(addprefix $(SRCS_DIR), main.cpp)

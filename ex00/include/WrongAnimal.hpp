@@ -6,7 +6,7 @@
 /*   By: soochoi <soochoi@student.42gyeongsan.kr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 15:31:56 by soochoi           #+#    #+#             */
-/*   Updated: 2026/01/22 16:39:53 by soochoi          ###   ########.fr       */
+/*   Updated: 2026/01/23 14:32:26 by soochoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class WrongAnimal
 		std::string	type_;
 	public:
 		WrongAnimal();
+		WrongAnimal(const std::string type);
 		WrongAnimal(const WrongAnimal& copyObj);
 		WrongAnimal&	operator=(const WrongAnimal& copyObj);
 		//if there is no virtual keyword, a memory leak occurs.

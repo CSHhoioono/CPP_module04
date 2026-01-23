@@ -6,22 +6,20 @@
 /*   By: soochoi <soochoi@student.42gyeongsan.kr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 17:30:07 by soochoi           #+#    #+#             */
-/*   Updated: 2026/01/22 16:34:16 by soochoi          ###   ########.fr       */
+/*   Updated: 2026/01/23 14:29:36 by soochoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat()
+Cat::Cat() : Animal("Cat")
 {
-	this->type_ = "Cat";
 	std::cout << "Default constructor(Cat class)>> "\
 		<< this->type_ << " has been created.\n" << std::endl;
 }
 
-Cat::Cat(const Cat& copyObj)
+Cat::Cat(const Cat& copyObj) : Animal(copyObj)
 {
-	*this = copyObj;
 	std::cout << "Copy constructor(Cat class)>> "\
 		<< this->type_ << " has been created.\n" << std::endl;
 }

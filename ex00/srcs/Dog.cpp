@@ -6,29 +6,27 @@
 /*   By: soochoi <soochoi@student.42gyeongsan.kr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 17:27:51 by soochoi           #+#    #+#             */
-/*   Updated: 2026/01/22 16:34:16 by soochoi          ###   ########.fr       */
+/*   Updated: 2026/01/23 14:29:31 by soochoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog()
+Dog::Dog() : Animal("Dog")
 {
-	this->type_ = "Dog";
 	std::cout << "Default constructor(Dog class)>> "\
 		<< this->type_ << " has been created.\n" << std::endl;
 }
 
-Dog::Dog(const Dog& copyObj)
+Dog::Dog(const Dog& copyObj) : Animal(copyObj)
 {
-	this->Animal::operator=(copyObj);
 	std::cout << "Copy constructor(Dog class)>> "\
 		<< this->type_ << " has been created.\n" << std::endl;
 }
 
 Dog&	Dog::operator=(const Dog& copyObj)
 {
-	this->type_ = copyObj.type_;
+	this->Animal::operator=(copyObj);
 	std::cout << "Copy assignment operator called" << std::endl;
 	return (*this);
 }

@@ -6,7 +6,7 @@
 /*   By: soochoi <soochoi@student.42gyeongsan.kr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 16:41:29 by soochoi           #+#    #+#             */
-/*   Updated: 2026/01/22 15:34:52 by soochoi          ###   ########.fr       */
+/*   Updated: 2026/01/23 14:27:26 by soochoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class	Animal
 		std::string	type_;
 	public:
 		Animal();
+		Animal(const std::string type);
 		Animal(const Animal& copyObj);
 		Animal&	operator=(const Animal& copyObj);
 		virtual ~Animal();
