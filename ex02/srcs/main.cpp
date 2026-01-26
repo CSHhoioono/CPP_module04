@@ -6,7 +6,7 @@
 /*   By: soochoi <soochoi@student.42gyeongsan.kr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 14:09:14 by soochoi           #+#    #+#             */
-/*   Updated: 2026/01/26 12:35:18 by soochoi          ###   ########.fr       */
+/*   Updated: 2026/01/26 13:10:38 by soochoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@ static void	print_msg(std::string msg)
 
 int	main(void)
 {
+	// print_msg("Abstract Class Test");
+	// {
+	// 	Animal	*A_ptr = new Animal();
+	// 	Animal	A;
+	//
+	// 	delete A_ptr;
+	// }
 	print_msg("Upcasting Test");
 	{
 		const Animal*	farm[10];
