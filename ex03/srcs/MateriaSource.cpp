@@ -6,8 +6,103 @@
 /*   By: soochoi <soochoi@student.42gyeongsan.kr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 17:30:39 by soochoi           #+#    #+#             */
-/*   Updated: 2026/01/26 17:30:48 by soochoi          ###   ########.fr       */
+/*   Updated: 2026/01/27 17:41:31 by soochoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
+
+MateriaSource::MateriaSource() : index_(0)
+{
+	for (int i = 0; i < 4; i++)
+		this->storage_[i] = 0;
+	std::cout << "Default constructor(MateriaSource class)>> "\
+		<< "Object" << " has been created.\n" << std::endl;
+}
+
+MateriaSource::MateriaSource(MateriaSource const &copyObj)\
+		index_(copyObj.index_)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (copyObj.storage_[i] == 0)
+			break ;
+		this->storage_[i] = copyObj.storage_[i]->clone();
+	}
+	std::cout << "Copy constructor(MateriaSource class)>> "\
+		<< "Object" << " has been created.\n" << std::endl;
+}
+
+MateriaSource&	MateriaSource::operator=(MateriaSource const &copyObj)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->storage_[i])
+		{
+			delete this->storage_[i];
+			this->storage_[i] = 0;
+		}
+		if (copyObj.storage_[i])
+			this->storage_[i] = copyObj.storage_[i]->clone();
+	}
+	this->index_ = copyObj.index_;
+	std::cout << "Copy assignment operator called" << std::endl;
+	return (*this);
+}
+
+MateriaSource::~MateriaSource()
+{
+	for(int i = 0; i < 4; i++)
+	{
+		if (this->storage_[i])
+		{
+			delete this->storage_[i];
+			this->storage_ = 0;
+		}
+	}
+	this->index_ = 0;
+	std::cout << "\nDestructor(MateriaSource class)>> "\
+		<< "Object" << " has been destroyed." << std::endl;
+}
+
+//Because the subject state that the class function of Character
+//try to add a Materia to a full inventory,
+//nothing should happen.
+void	MateriaSource::learnMateria(AMeteria* learnObj)
+{
+	if (this->index_ >= 4)
+	{
+		std::cout << "Function(learnMateria)>> "
+			<< "Storage space is already full." << std::endl;
+		return ;
+	}
+	this->storage_[this->index_] = learnObj->clone();
+	(this->index_)++;
+}
+
+//When attempting to add AMeteria while the inventory is full
+//,and proceeding with the addition.
+// void	MateriaSource::learnMateria(AMeteria* learnObj)
+// {
+// 	if (this->storage_[this->index_])
+// 	{
+// 		delete this->storage_[this->index_];
+// 		this->storage_[this->index_] = 0;
+// 	}
+// 	this->storage_[this->index_] = learnObj->clone();
+// 	++(this->index_) %= 4;
+// }
+
+//check whether the storage is null
+//And check whether the AMeteria is same type.
+AMeteria*	MateriaSource::createMateria(std::string const & type)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (!this->storage_[i])
+			continue ;
+		if (this->storage_[i]->getType() == type)
+			return (this->storage_[i]->clone());
+	}
+	return (0);
+}
