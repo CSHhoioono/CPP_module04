@@ -6,14 +6,14 @@
 #    By: soochoi <soochoi@student.42gyeongsan.kr>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/05 16:07:24 by soochoi           #+#    #+#              #
-#    Updated: 2026/01/26 17:30:09 by soochoi          ###   ########.fr        #
+#    Updated: 2026/01/29 17:11:47 by soochoi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Interface
 
 HEADER_DIR = ./include/
-HEADER_LIST = AMeteria.hpp Cure.hpp Ice.hpp\
+HEADER_LIST = AMateria.hpp Cure.hpp Ice.hpp\
 			  ICharacter.hpp Character.hpp\
 			  IMateriaSource.hpp MateriaSource.hpp
 HEADER = $(addprefix $(HEADER_DIR), $(HEADER_LIST))
@@ -24,7 +24,7 @@ VERSION_FLAG = -std=c++98
 INCLUDE = -I$(HEADER_DIR)
 
 SRCS_DIR = ./srcs/
-SRCS_LIST = AMeteria.cpp Cure.cpp Ice.cpp\
+SRCS_LIST = AMateria.cpp Cure.cpp Ice.cpp\
 			Character.cpp MateriaSource.cpp
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_LIST))
 

@@ -6,7 +6,7 @@
 /*   By: soochoi <soochoi@student.42gyeongsan.kr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 17:28:00 by soochoi           #+#    #+#             */
-/*   Updated: 2026/01/27 17:41:31 by soochoi          ###   ########.fr       */
+/*   Updated: 2026/01/29 17:20:52 by soochoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 # define MATERIASOURCE_HPP
 
 # include "IMateriaSource.hpp"
-# include "AMeteria.hpp"
+# include "AMateria.hpp"
 # include <string>
 # include <iostream>
 
 class MateriaSource : public IMateriaSource
 {
 	private:
-		 AMeteria*	storage_[4];
+		 AMateria*	storage_[4];
 		 int		index_;
 	public:
 		MateriaSource();
@@ -29,8 +29,9 @@ class MateriaSource : public IMateriaSource
 		MateriaSource&	operator=(MateriaSource const &copyObj);
 		~MateriaSource();
 
-		void	learnMateria(AMeteria* learnObj);
-		AMeteria*	createMateria(std::string const & type);
+		bool	isSame(AMateria* m);
+		void	learnMateria(AMateria* learnObj);
+		AMateria*	createMateria(std::string const & type);
 };
 
 #endif

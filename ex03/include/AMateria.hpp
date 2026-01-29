@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMeteria.hpp                                       :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soochoi <soochoi@student.42gyeongsan.kr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 13:45:30 by soochoi           #+#    #+#             */
-/*   Updated: 2026/01/26 16:02:54 by soochoi          ###   ########.fr       */
+/*   Updated: 2026/01/29 17:11:47 by soochoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,23 @@
 # include <iostream>
 # include "ICharacter.hpp"
 
-class AMeteria
+class ICharacter;
+
+class AMateria
 {
 	protected:
 		std::string	type_;
 
 	public:
-		AMeteria();
-		AMeteria(std::string const &type);
-		AMeteria(AMeteria const &copyObj);
-		AMeteria&	operator=(AMeteria const &copyObj);
-		virtual ~AMeteria();
+		AMateria();
+		AMateria(std::string const &type);
+		AMateria(AMateria const &copyObj);
+		AMateria&	operator=(AMateria const &copyObj);
+		virtual ~AMateria();
 
 		std::string const	&getType() const;
 
-		virtual AMeteria*	clone() const = 0;
+		virtual AMateria*	clone() const = 0;
 		virtual void	use(ICharacter& target);
 };
 
