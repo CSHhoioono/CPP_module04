@@ -6,7 +6,7 @@
 #    By: soochoi <soochoi@student.42gyeongsan.kr>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/05 16:07:24 by soochoi           #+#    #+#              #
-#    Updated: 2026/03/06 17:20:02 by soochoi          ###   ########.fr        #
+#    Updated: 2026/03/06 17:31:24 by soochoi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ INCLUDE = -I$(HEADER_DIR)
 
 SRCS_DIR = ./srcs/
 SRCS_LIST = AMateria.cpp Cure.cpp Ice.cpp\
+			ICharacter.cpp IMateriaSource.cpp\
 			Character.cpp MateriaSource.cpp
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_LIST))
 

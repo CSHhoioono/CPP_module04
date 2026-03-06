@@ -6,7 +6,7 @@
 /*   By: soochoi <soochoi@student.42gyeongsan.kr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 15:50:12 by soochoi           #+#    #+#             */
-/*   Updated: 2026/01/29 17:11:47 by soochoi          ###   ########.fr       */
+/*   Updated: 2026/03/06 17:30:04 by soochoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ class AMateria;
 class ICharacter
 {
 	public:
+		ICharacter();
+		ICharacter(ICharacter const &copyObj);
+		ICharacter&	operator=(ICharacter const &copyObj);
 		virtual	~ICharacter() {}
+
 		virtual std::string const	&getName() const = 0;
 		virtual void	equip(AMateria * m) = 0;
 		virtual void	unequip(int idx) = 0;

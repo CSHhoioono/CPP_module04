@@ -6,7 +6,7 @@
 /*   By: soochoi <soochoi@student.42gyeongsan.kr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 17:21:36 by soochoi           #+#    #+#             */
-/*   Updated: 2026/01/29 17:11:47 by soochoi          ###   ########.fr       */
+/*   Updated: 2026/03/06 17:30:04 by soochoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@
 class IMateriaSource
 {
 	public:
+		IMateriaSource();
+		IMateriaSource(IMateriaSource const &copyObj);
+		IMateriaSource&	operator=(IMateriaSource const &copyObj);
+		virtual	~IMateriaSource() {}
+
 		virtual ~IMateriaSource() {}
 		virtual void learnMateria(AMateria*) = 0;
 		virtual AMateria*	createMateria(std::string const & type) = 0;
