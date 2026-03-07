@@ -6,7 +6,7 @@
 /*   By: soochoi <soochoi@student.42gyeongsan.kr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 15:51:25 by soochoi           #+#    #+#             */
-/*   Updated: 2026/03/07 15:05:51 by soochoi          ###   ########.fr       */
+/*   Updated: 2026/03/07 16:21:24 by soochoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,11 @@ Cure::~Cure()
 
 Cure*	Cure::clone() const
 {
-	// Cure	*clone = new Cure(*this);
+	Cure	*clone = new Cure(*this);
+
 	std::cout << "Function(Cure::clone)>> A Cure clone has been created."\
 		<< std::endl;
-	return (new Cure(*this));
+	return (clone);
 }
 
 void	Cure::use(ICharacter& target)

@@ -6,7 +6,7 @@
 /*   By: soochoi <soochoi@student.42gyeongsan.kr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 15:52:39 by soochoi           #+#    #+#             */
-/*   Updated: 2026/03/07 15:05:51 by soochoi          ###   ########.fr       */
+/*   Updated: 2026/03/07 16:21:00 by soochoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,11 @@ Ice::~Ice()
 
 Ice*	Ice::clone() const
 {
-	// Ice	*clone = new Ice(*this);
+	Ice	*clone = new Ice(*this);
+
 	std::cout << "Function(Ice::clone)>> A Ice clone has been created."\
 		<< std::endl;
-	return (new Ice(*this));
+	return (clone);
 }
 
 void	Ice::use(ICharacter& target)

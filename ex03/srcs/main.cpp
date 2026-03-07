@@ -6,7 +6,7 @@
 /*   By: soochoi <soochoi@student.42gyeongsan.kr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 14:09:14 by soochoi           #+#    #+#             */
-/*   Updated: 2026/03/07 15:44:56 by soochoi          ###   ########.fr       */
+/*   Updated: 2026/03/07 16:18:14 by soochoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ int	main(void)
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
-	tmp = src->createMateria("cure");
 	me->equip(tmp);
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
