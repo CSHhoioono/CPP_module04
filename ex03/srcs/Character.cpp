@@ -6,7 +6,7 @@
 /*   By: soochoi <soochoi@student.42gyeongsan.kr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 16:56:58 by soochoi           #+#    #+#             */
-/*   Updated: 2026/01/29 17:11:47 by soochoi          ###   ########.fr       */
+/*   Updated: 2026/03/07 14:33:07 by soochoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,20 @@ Character::Character(Character const &copyObj) : name_(copyObj.name_)
 
 Character&	Character::operator=(Character const &copyObj)
 {
-	this->name_ = copyObj.name_;
-	for (int i = 0; i < 4; i++)
-	{
-		if (this->slot_[i])
+	if (this != &copyObj)
+    {
+		this->name_ = copyObj.name_;
+		for (int i = 0; i < 4; i++)
 		{
-			delete this->slot_[i];
-			this->slot_[i] = 0;
+			if (this->slot_[i])
+			{
+				delete this->slot_[i];
+				this->slot_[i] = 0;
+			}
+			if (copyObj.slot_[i])
+				this->slot_[i] = copyObj.slot_[i]->clone();
 		}
-		if (copyObj.slot_[i])
-			this->slot_[i] = copyObj.slot_[i]->clone();
-	}
+    }
 	std::cout << "Copy assignment operator called" << std::endl;
 	return (*this);
 }
@@ -74,7 +77,24 @@ Character::~Character()
 
 std::string const &	Character::getName() const { return (this->name_); }
 
-bool	Character::isSame(AMateria* m)
+AMateria	*Character::getSlot(int idx) const
+{
+	if (idx < 0 || 4 <= idx)
+	{
+		std::cout << "Function(Character::getSlot)>> "\
+			<< "An invalid index has been entered." << std::endl;
+		return (0);
+	}
+	if (this->slot_[idx] == 0)
+	{
+		std::cout << "Function(Character::getSlot)>> "\
+			<< "slot[" << idx << "]: Materia does not exist." << std::endl;
+		return (0);
+	}
+	return (this->slot_[idx]);
+}
+
+bool	Character::isSame(AMateria* m) const
 {
 	for (int i = 0; i < 4; i++)
 		if (this->slot_[i] == m)

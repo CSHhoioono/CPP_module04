@@ -6,7 +6,7 @@
 /*   By: soochoi <soochoi@student.42gyeongsan.kr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 17:30:39 by soochoi           #+#    #+#             */
-/*   Updated: 2026/01/29 17:21:26 by soochoi          ###   ########.fr       */
+/*   Updated: 2026/03/07 15:55:37 by soochoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,19 @@ MateriaSource::MateriaSource(MateriaSource const &copyObj) : index_(copyObj.inde
 
 MateriaSource&	MateriaSource::operator=(MateriaSource const &copyObj)
 {
-	for (int i = 0; i < 4; i++)
-	{
-		if (this->storage_[i])
+	if (this != &copyObj)
+    {
+		for (int i = 0; i < 4; i++)
 		{
-			delete this->storage_[i];
-			this->storage_[i] = 0;
+			if (this->storage_[i])
+			{
+				delete this->storage_[i];
+				this->storage_[i] = 0;
+			}
+			if (copyObj.storage_[i])
+				this->storage_[i] = copyObj.storage_[i]->clone();
 		}
-		if (copyObj.storage_[i])
-			this->storage_[i] = copyObj.storage_[i]->clone();
-	}
+    }
 	this->index_ = copyObj.index_;
 	std::cout << "Copy assignment operator called" << std::endl;
 	return (*this);
@@ -77,6 +80,12 @@ bool	MateriaSource::isSame(AMateria* m)
 //nothing should happen.
 void	MateriaSource::learnMateria(AMateria* learnObj)
 {
+	if (learnObj == 0)
+	{
+		std::cout << "Function(MateriaSource::learnMateria)>> "\
+			<< "Materia does not exist." << std::endl;
+		return ;
+	}
 	if (this->index_ >= 4)
 	{
 		std::cout << "Function(MateriaSource::learnMateria)>> "
@@ -87,6 +96,9 @@ void	MateriaSource::learnMateria(AMateria* learnObj)
 		this->storage_[this->index_] = learnObj->clone();
 	else
 		this->storage_[this->index_] = learnObj;
+	std::cout << "Function(MateriaSource::learnMateria)>> "
+		<< this->storage_[this->index_]->getType()\
+		<< " Materia has been learnt."<< std::endl;
 	(this->index_)++;
 }
 
@@ -112,7 +124,14 @@ AMateria*	MateriaSource::createMateria(std::string const & type)
 		if (!this->storage_[i])
 			continue ;
 		if (this->storage_[i]->getType() == type)
-			return (this->storage_[i]->clone());
+		{
+			AMateria*	tmp = this->storage_[i]->clone();
+			std::cout << "Function(MateriaSource::createMateria)>> "
+				<< type << " Materia has been created." << std::endl;
+			return (tmp);
+		}
 	}
+	std::cout << "Function(MateriaSource::createMateria)>> "
+		<< type << " Materia cannot be found." << std::endl;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: soochoi <soochoi@student.42gyeongsan.kr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 16:55:32 by soochoi           #+#    #+#             */
-/*   Updated: 2026/01/29 17:11:47 by soochoi          ###   ########.fr       */
+/*   Updated: 2026/03/07 15:36:14 by soochoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Character : public ICharacter
 	private:
 		std::string		name_;
 		AMateria*		slot_[4];
+		bool	isSame(AMateria* m) const;
 	public:
 		Character();
 		Character(std::string const &name);
@@ -33,7 +34,7 @@ class Character : public ICharacter
 
 		//virtual part inherited from ICharacter
 		std::string const	&getName() const;
-		bool	isSame(AMateria* m);
+		AMateria	*getSlot(int idx) const;
 		void	equip(AMateria* m);
 		void	unequip(int idx);
 		void	use(int idx, ICharacter& target);
